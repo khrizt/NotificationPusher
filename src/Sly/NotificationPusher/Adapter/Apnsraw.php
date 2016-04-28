@@ -63,7 +63,7 @@ class Apnsraw extends BaseAdapter
         foreach ($push->getDevices() as $device) {
             $message = $this->getMessage($device, $push->getMessage());
 
-            $result = fwrite($client, $msg, strlen($msg));
+            $result = fwrite($client, $message, strlen($message));
 
             if (!$result) {
                 throw new PushException('Message could not be delivered');
